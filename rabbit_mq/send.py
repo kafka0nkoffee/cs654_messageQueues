@@ -2,6 +2,8 @@
 import pika
 import random
 import string
+import calendar
+import time
 
 credentials = pika.PlainCredentials('guest', 'guest')
 params = pika.ConnectionParameters(
@@ -18,14 +20,31 @@ channel.queue_declare(queue='hello')
 
 messages = []
 
-for x in range(0, 100000):
+for x in range(0, 10000):
 	msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(3))
 	messages.append(msg)
 
-for i in range(len(messages)):
+times = []
+
+for msgId in range(len(messages)):
 	channel.basic_publish(exchange='',
 			      routing_key='hello',
-			      body=messages[i])
+			      body=messages[msgId])
 
-#print ("SENT", body)
+	times.append([msgId, calendar.timegm(time.gmtime())])
+	#print ("SENT", body)
+
+# Write the current time every time we send a message
+f = open('send.log', 'w')
+print('Sent ' + str(len(times)) + ' messages')
+for item in times:
+
+#	f.write("%s\n" % item)
+	msgId = item[0]
+	sendTime = item[1] 
+	f.write(str(msgId))
+	f.write(" ")
+	f.write(str(sendTime))
+	f.write("\n")
+
 connection.close()
