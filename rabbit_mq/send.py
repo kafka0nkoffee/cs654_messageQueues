@@ -23,19 +23,28 @@ channel.queue_declare(queue='hello')
 
 messages = []
 
+'''
 for x in range(0, NUM_MESSAGES):
-	msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(15))
+	msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(952))
+	#print(sys.getsizeof(msg))
+	#exit()
 	messages.append(msg)
+'''
+
+
+msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(15))
+#msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(952))
 
 times = []
 
-for msgId in range(len(messages)):
+for msgId in range(NUM_MESSAGES):
+
 	channel.basic_publish(exchange='',
 			      routing_key='hello',
-			      body=messages[msgId])
+			      body=msg)
 
 	times.append([msgId, calendar.timegm(time.gmtime())])
-	#print ("SENT", body)
+	#print ("SENT", msg)
 
 # Write the current time every time we send a message
 f = open('send.log', 'w')
