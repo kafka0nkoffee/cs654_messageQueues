@@ -43,7 +43,8 @@ for msgId in range(NUM_MESSAGES):
 			      routing_key='hello',
 			      body=msg)
 
-	times.append([msgId, calendar.timegm(time.gmtime())])
+	currTime = int(round(time.time() * 1000))
+	times.append([msgId, currTime])
 	#print ("SENT", msg)
 
 # Write the current time every time we send a message
