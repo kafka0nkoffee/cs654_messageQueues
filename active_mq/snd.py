@@ -24,7 +24,8 @@ msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in ran
 for msgId in range(NUM_MESSAGES):
 	conn.send('SampleQueue', msg)
 
-	times.append([msgId, calendar.timegm(time.gmtime())])
+	currTime = int(round(time.time() * 1000))
+	times.append([msgId, currTime])
 	#print ("SENT", body)
 
 # Write the current time every time we send a message
