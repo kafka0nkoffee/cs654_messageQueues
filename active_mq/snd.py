@@ -17,14 +17,12 @@ conn.connect()
  
 messages = []
 
-for x in range(0, NUM_MESSAGES):
-	msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(15))
-	messages.append(msg)
-
 times = []
 
-for msgId in range(len(messages)):
-	conn.send('SampleQueue', messages[msgId])
+msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(15))
+
+for msgId in range(NUM_MESSAGES):
+	conn.send('SampleQueue', msg)
 
 	times.append([msgId, calendar.timegm(time.gmtime())])
 	#print ("SENT", body)
