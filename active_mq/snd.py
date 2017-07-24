@@ -7,9 +7,9 @@ import time
 import sys
 import stomp
 
-NUM_MESSAGES=10
+NUM_MESSAGES=1000000
 
-conn = stomp.Connection10()
+conn = stomp.Connection10([('ugster11.student.cs.uwaterloo.ca','61613')])
  
 conn.start()
  
