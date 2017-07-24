@@ -4,6 +4,8 @@ import calendar
 import time
 import sys
 
+NUM_MESSAGES=10
+
 msgId=0
 f = open('receive.log', 'w')
 
@@ -21,7 +23,7 @@ def callback(ch, method, properties, body):
 	msgId+=1
 
 	# Stopping conditions
-	if msgId==10000:
+	if msgId==NUM_MESSAGES:
 
 		print('Received ' + str(len(times)) + ' messages')
 		for item in times:
