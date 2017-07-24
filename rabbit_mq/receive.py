@@ -19,7 +19,9 @@ def callback(ch, method, properties, body):
 	global times
 	global f
 
-	times.append([msgId,calendar.timegm(time.gmtime())])
+	currTime = int(round(time.time() * 1000))
+	times.append([msgId, currTime])
+
 	msgId+=1
 
 	# Stopping conditions
