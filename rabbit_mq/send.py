@@ -4,8 +4,9 @@ import random
 import string
 import calendar
 import time
+import sys
 
-NUM_MESSAGES=10
+NUM_MESSAGES=1000000
 
 credentials = pika.PlainCredentials('guest', 'guest')
 params = pika.ConnectionParameters(
@@ -23,7 +24,7 @@ channel.queue_declare(queue='hello')
 messages = []
 
 for x in range(0, NUM_MESSAGES):
-	msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(3))
+	msg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(15))
 	messages.append(msg)
 
 times = []

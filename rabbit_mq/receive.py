@@ -4,7 +4,7 @@ import calendar
 import time
 import sys
 
-NUM_MESSAGES=10
+NUM_MESSAGES=1000000
 
 msgId=0
 f = open('receive.log', 'w')
