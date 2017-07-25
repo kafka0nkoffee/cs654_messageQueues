@@ -4,7 +4,7 @@ import calendar
 import time
 import sys
 
-NUM_MESSAGES=10
+NUM_MESSAGES=1000000
 
 msgId=0
 times = []
@@ -17,7 +17,8 @@ class SampleListener(object):
         global times
         global f
         
-        times.append([msgId,calendar.timegm(time.gmtime())])
+        currTime = int(round(time.time()*1000))
+        times.append([msgId, currTime])
         msgId+=1
         
         #stopping conditions
@@ -36,7 +37,7 @@ class SampleListener(object):
             print("Done consuming.")
             sys.exit()
             
-conn = stomp.Connection10()
+conn = stomp.Connection10([('ugster11.student.cs.uwaterloo.ca','61613')])
  
 conn.set_listener('SampleListener', SampleListener())
  
