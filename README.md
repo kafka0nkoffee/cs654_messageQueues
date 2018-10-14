@@ -6,12 +6,11 @@ This project and the resultant paper aims to give a clear view on the myriad of 
 
 ### Graphs
 
-![picture alt](graphs/rabbit_mq_1000.png "Title is optional")
+![picture alt](graphs/rabbit_mq_1000.png "RabbitMQ Tail Latency with 1 million 1000 byte messages")
 
-[RabbitMQ Tail Latency with 1 million 1000 byte messages](graphs/rabbit_mq_1000.png)
+![picture alt](graphs/active_1000.png "ActiveMQ Tail Latency with 1 million 1000 bytes messages")
 
-[ActiveMQ Tail Latency with 1 million 1000 bytes messages](graphs/active_1000.png)
+![picture alt](graphs/rabbit_thru_1000.png "RabbitMQ throughput with 1 million 1000 byte messages")
 
-[RabbitMQ throughput with 1 million 1000 byte messages](graphs/rabbit_thru_1000.png)
+![picture alt](graphs/active_thru_1000.png "ActiveMQ throughput with 1 million 1000 bytes messages")
 
-[ActiveMQ throughput with 1 million 1000 bytes messages](graphs/active_thru_1000.png)
