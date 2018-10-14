@@ -6,6 +6,8 @@ This project and the resultant paper aims to give a clear view on the myriad of 
 
 ### Graphs
 
+![picture alt](graphs/rabbit_mq_1000.png "Title is optional")
+
 [RabbitMQ Tail Latency with 1 million 1000 byte messages](graphs/rabbit_mq_1000.png)
 
 [ActiveMQ Tail Latency with 1 million 1000 bytes messages](graphs/active_1000.png)
